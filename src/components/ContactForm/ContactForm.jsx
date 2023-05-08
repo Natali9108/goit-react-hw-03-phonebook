@@ -16,11 +16,6 @@ class ContactForm extends Component {
     number: '',
   };
 
-  state = {
-    name: this.initialValues,
-    number: this.initialValues,
-  };
-
   handleSubmit = (values, actions) => {
     this.props.onSubmit(values);
 
