@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillDelete } from 'react-icons/ai';
 import PropTypes from 'prop-types';
+import { padaddLeadingZero } from 'utils';
 import {
   ContactsList,
   ContactItem,
@@ -11,10 +12,10 @@ import {
 const ContactList = ({ items, onDeleteContact }) => {
   return (
     <ContactsList>
-      {items.map(({ id, name, number }) => (
+      {items.map(({ id, name, number }, index) => (
         <ContactItem key={id}>
           <ContactText>
-            {name}: {number}
+            {padaddLeadingZero(index + 1)}. {name}: {number}
           </ContactText>
           <DeleteBtn type="button" onClick={() => onDeleteContact(id)}>
             <AiFillDelete />
