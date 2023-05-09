@@ -6,7 +6,13 @@ const Filter = ({ value, onChange }) => {
   return (
     <FilterBox>
       <FilterText>Find contacts by name</FilterText>
-      <FilterField type="text" value={value} onChange={onChange} name="name" />
+      <FilterField
+        autoComplete="off"
+        type="text"
+        value={value}
+        onChange={onChange}
+        name="name"
+      />
     </FilterBox>
   );
 };

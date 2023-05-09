@@ -7,7 +7,6 @@ export const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${props => props.theme.colors.backdropColor};
-  transform: translateY(0);
 `;
 
 export const ModalBox = styled.div`
@@ -34,7 +33,7 @@ export const CloseBtn = styled.button`
   border: none;
   border-radius: 50%;
   background-color: transparent;
-  transition-property: transform, background-color;
+  transition-property: transform;
   transition-duration: 0.25s;
   transition-timing-function: ${props => props.theme.animation.cubicBezier};
   cursor: pointer;
