@@ -42,6 +42,7 @@ export const CloseBtn = styled.button`
   &:focus {
     transform: scale(1.02);
     background-color: ${props => props.theme.colors.btnColor};
+    padding: ${props => props.theme.spacing(1)};
     color: ${props => props.theme.colors.white};
   }
 `;
