@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import { BsPersonFillAdd } from 'react-icons/bs';
+import ButtonIcon from '../ButtonIcon';
+import Modal from '../Modal';
 import ContactForm from '../ContactForm';
 import ContactList from '../ContactList';
 import Filter from '../Filter';
@@ -16,9 +19,14 @@ export class App extends Component {
   state = {
     contacts: [],
     filter: '',
+    showModal: false,
   };
 
   LOCAL_STORAGE_KEY = 'contacts';
+
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({ showModal: !showModal }));
+  };
 
   componentDidMount() {
     const savedContacts = localStorage.getItem(this.LOCAL_STORAGE_KEY);
@@ -29,7 +37,7 @@ export class App extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevState) {
     if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem(
         this.LOCAL_STORAGE_KEY,
@@ -57,6 +65,8 @@ export class App extends Component {
     this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
     }));
+
+    this.toggleModal();
   };
 
   changeFilter = evt => {
@@ -68,9 +78,8 @@ export class App extends Component {
   getVisibleContacts = () => {
     const { contacts, filter } = this.state;
     const normalizedFilterName = filter.toLowerCase();
-    return contacts.filter(
-      contact => contact.name.toLowerCase().includes(normalizedFilterName)
-      // .sort((a, b) => a.name.localeCompare(b.name))
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilterName)
     );
   };
 
@@ -83,13 +92,20 @@ export class App extends Component {
   render() {
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
-    const sortVisibleContacts = visibleContacts.sort((a, b) =>
-      a.name.localeCompare(b.name)
+    const sortVisibleContacts = visibleContacts.sort((first, second) =>
+      first.name.localeCompare(second.name)
     );
     return (
       <Container>
         <PhonebookTitle>Phonebook</PhonebookTitle>
-        <ContactForm onSubmit={this.addContact} />
+        <ButtonIcon onClick={this.toggleModal}>
+          <BsPersonFillAdd />
+        </ButtonIcon>
+        {this.state.showModal && (
+          <Modal onClose={this.toggleModal}>
+            <ContactForm onSubmit={this.addContact} />
+          </Modal>
+        )}
         <ContactsTitle>Contacts</ContactsTitle>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList

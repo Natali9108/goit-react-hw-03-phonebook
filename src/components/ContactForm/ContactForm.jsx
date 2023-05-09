@@ -29,15 +29,14 @@ class ContactForm extends Component {
         validationSchema={validationSchema}
         onSubmit={this.handleSubmit}
       >
-        {({ isValid, dirty }) => (
+        {({ errors, touched, isValid, dirty }) => (
           <PhonebookForm autoComplete="off">
             <Label htmlFor="name">
               Name
               <Input
                 type="text"
                 name="name"
-                // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                // required
+                className={errors.name && touched.name ? 'invalid' : 'null'}
               />
               <ErrorDescription component="div" name="name" />
             </Label>
@@ -46,9 +45,7 @@ class ContactForm extends Component {
               <Input
                 type="tel"
                 name="number"
-                //     title="Phone number must be digits and can contain
-                // spaces, dashes, parentheses and can start with +"
-                //     required
+                className={errors.number && touched.number ? 'invalid' : 'null'}
               />
               <ErrorDescription component="div" name="number" />
             </Label>

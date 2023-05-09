@@ -5,18 +5,14 @@ export const PhonebookForm = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: ${props => props.theme.spacing(5)};
-  margin: 0 auto;
-  max-width: 400px;
   padding: ${props => props.theme.spacing(7)};
-  margin-bottom: ${props => props.theme.spacing(4)};
-  border: 1px solid ${props => props.theme.colors.borerFormColor};
-  border-radius: ${props => props.theme.spacing(2)};
 `;
 
 export const Label = styled.label`
   display: inline-flex;
   flex-direction: column;
   gap: ${props => props.theme.spacing(1)};
+  margin-bottom: ${props => props.theme.spacing(5)};
   font-size: ${props => props.theme.fontSizes.small};
   font-weight: 600;
 `;
@@ -33,6 +29,11 @@ export const Input = styled(Field)`
   &:focus {
     outline: 2px solid ${props => props.theme.colors.borerFormColor};
     outline-offset: -2px;
+
+    &.invalid {
+      outline: 2px solid ${props => props.theme.colors.red};
+      outline-offset: -2px;
+    }
   }
 
  
@@ -62,8 +63,8 @@ export const AddBtn = styled.button`
   &:hover,
   &:focus {
     transform: scale(1.02);
+    background-color: ${props => props.theme.colors.btnColor};
     color: ${props => props.theme.colors.white};
-    background-color: ${props => props.theme.colors.green};
   }
 
   &:disabled {

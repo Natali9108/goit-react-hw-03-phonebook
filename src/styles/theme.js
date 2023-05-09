@@ -1,15 +1,17 @@
 export const theme = Object.freeze({
   colors: {
-    primaryBlack: '#080103',
-    borerFormColor: '#504e26',
+    primaryBlack: '#070a14',
+    borerFormColor: '#bfc3c7',
     grey: '#bcc1cb',
     white: '#ffffff',
     green: '#4caf50',
     blue: '#1a46bb',
     red: '#991010',
-    btnBgColor: '#cfce21',
-    disabledBgColor: '#7e7e68',
-    disabledColor: '#5a5a3c',
+    btnColor: '#263f78',
+    btnBgColor: '#d5e2e7',
+    disabledBgColor: '#cfc8ca',
+    disabledColor: '#74757e',
+    backdropColor: 'rgba(0, 0, 0, 0.5)',
   },
 
   fontSizes: {

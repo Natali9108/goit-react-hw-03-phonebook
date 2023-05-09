@@ -14,7 +14,7 @@ export const GlobalStyles = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: ${theme.colors.primaryBlack};
-    background-color: #787568;
+    background-color: #fbfcff;
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

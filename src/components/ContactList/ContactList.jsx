@@ -1,13 +1,9 @@
 import React from 'react';
-import { AiFillDelete } from 'react-icons/ai';
+import { MdDelete } from 'react-icons/md';
 import PropTypes from 'prop-types';
+import ButtonIcon from '../ButtonIcon';
 import { padaddLeadingZero } from 'utils';
-import {
-  ContactsList,
-  ContactItem,
-  ContactText,
-  DeleteBtn,
-} from './ContactList.styled';
+import { ContactsList, ContactItem, ContactText } from './ContactList.styled';
 
 const ContactList = ({ items, onDeleteContact }) => {
   return (
@@ -17,9 +13,9 @@ const ContactList = ({ items, onDeleteContact }) => {
           <ContactText>
             {padaddLeadingZero(index + 1)}. {name}: {number}
           </ContactText>
-          <DeleteBtn type="button" onClick={() => onDeleteContact(id)}>
-            <AiFillDelete />
-          </DeleteBtn>
+          <ButtonIcon onClick={() => onDeleteContact(id)}>
+            <MdDelete />
+          </ButtonIcon>
         </ContactItem>
       ))}
     </ContactsList>
