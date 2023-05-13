@@ -19,7 +19,7 @@ export const Label = styled.label`
 
 export const Input = styled(Field)`
   padding: ${props => props.theme.spacing(2)};
-  width: 100%; 
+  width: 100%;
   font-size: ${props => props.theme.fontSizes.small};
   background-color: inherit;
   border: none;
@@ -34,9 +34,6 @@ export const Input = styled(Field)`
       outline: 2px solid ${props => props.theme.colors.red};
       outline-offset: -2px;
     }
-  }
-
- 
   }
 `;
 
